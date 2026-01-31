@@ -346,7 +346,7 @@ This guide walks you through demonstrating Second Thought's core features in a l
 
 ### Technology (1 minute)
 
-> "Under the hood, we're using **Cerebras AI** for ultra-fast analysis—under 500ms. We've integrated **Opik** for full observability—every request is traced, evaluated, and optimized. And we've written **85 tests** including property-based tests to ensure financial calculations are always correct."
+> "Under the hood, I'm using **Google Gemini 3** for ultra-fast analysis—under 500ms. I've integrated **Opik** for full observability—every request is traced, evaluated, and optimized. And I've written **85 tests** including property-based tests to ensure financial calculations are always correct."
 
 > "We're not just a hackathon project—this is production-ready code that could launch tomorrow."
 
@@ -483,7 +483,7 @@ After the demo, judges should understand:
 
 1. ✅ **The Problem**: $18K/year lost to impulse purchases
 2. ✅ **The Solution**: AI-powered intervention at point of purchase
-3. ✅ **The Technology**: Cerebras + Opik + Next.js + Chrome Extension
+3. ✅ **The Technology**: Gemini 3 + Opik + Next.js + Chrome Extension
 4. ✅ **The Impact**: Measurable wealth building through small decisions
 5. ✅ **The Quality**: Production-ready code with 85 tests
 6. ✅ **The Vision**: Financial wellness movement, not just a tool

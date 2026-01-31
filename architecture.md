@@ -2,7 +2,7 @@
 
 ## System Overview
 
-Second Thought is a full-stack application consisting of a Chrome browser extension (frontend) and a Next.js API (backend), with AI-powered analysis via Cerebras, data persistence via Supabase, and comprehensive observability via Opik.
+Second Thought is a full-stack application consisting of a Chrome browser extension (frontend) and a Next.js API (backend), with AI-powered analysis via Google Gemini 3, data persistence via Supabase, and comprehensive observability via Opik.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -211,20 +211,15 @@ CREATE TABLE cooldowns (
 
 ### 3. Core Libraries
 
-#### Cerebras Client (`src/lib/cerebras.ts`)
+#### Gemini Client (`src/lib/gemini.ts`)
 **Purpose**: AI-powered purchase analysis
 
 **Key Components**:
 - `analyzePurchase()` - Main analysis function
 - `buildPrompt()` - Constructs AI prompt with user context
 - `parseAIResponse()` - Extracts structured data from AI response
-- Load balancer integration for reliability
 
-**AI Model**: `qwen-3-235b-a22b-instruct-2507`
-**Parameters**:
-- Temperature: 0.6 (balanced creativity/consistency)
-- Max tokens: 4096
-- Top-p: 0.95
+**AI Model**: `gemini-3-flash-preview`
 
 **Prompt Structure**:
 ```
@@ -528,8 +523,7 @@ interface Cooldown {
 ## Performance Optimization
 
 ### AI Inference
-- **Cerebras Cloud**: Ultra-fast inference (<500ms)
-- **Load balancing**: Multiple API keys for reliability
+- **Gemini 3**: Ultra-fast inference (<500ms)
 - **Caching**: Store recent analyses (5min TTL)
 - **Fallback responses**: Graceful degradation if AI fails
 
@@ -611,22 +605,22 @@ fc.assert(
 ### Current Capacity
 - **API**: 1000 req/s (Vercel serverless)
 - **Database**: 10K concurrent connections
-- **AI**: 100 req/s per Cerebras key
+- **AI**: Gemini 3 API limits (check quota)
 
 ### Scaling Strategy
-1. **Horizontal scaling**: Add more Cerebras API keys
+1. **Horizontal scaling**: Monitor Gemini API quotas
 2. **Caching layer**: Redis for frequent queries
 3. **CDN**: Static assets via Vercel Edge
 4. **Database sharding**: Partition by userId
 5. **Queue system**: Bull/Redis for async tasks
 
 ### Cost Optimization
-- **Cerebras**: $0.60 per 1M tokens (~$0.001 per analysis)
+- **Gemini 3**: Check current pricing (competitive rates)
 - **Supabase**: Free tier → $25/month → $99/month
 - **Vercel**: Free tier → $20/month → $150/month
 - **Opik**: Free tier → $49/month
 
-**Estimated cost per user per month**: $0.10
+**Estimated cost per user per month**: $0.10-0.15
 
 ## Future Architecture Enhancements
 

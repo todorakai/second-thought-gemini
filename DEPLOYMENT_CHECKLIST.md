@@ -16,8 +16,7 @@ NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
 OPIK_API_KEY=your_opik_key
 OPIK_WORKSPACE_NAME=your_workspace
-CEREBRAS_API_KEY_1=your_cerebras_key
-# Add more Cerebras keys if you have them for load balancing
+GEMINI_API_KEY=your_gemini_api_key
 ```
 
 **Important**: 

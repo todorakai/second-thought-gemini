@@ -336,7 +336,7 @@ All files                     |   98.7  |   93.8   |   100   |   98.7
 - **Digit**: Automated savings (but we prevent spending)
 
 ### Special Thanks
-- Cerebras team for ultra-fast AI
+- Google DeepMind team for Gemini 3 API
 - Opik/Comet team for observability tools
 - Supabase team for database infrastructure
 - Open source community for amazing tools
@@ -362,15 +362,15 @@ A: Probably! We support 10+ sites and have generic fallbacks. If not, it's easy 
 ### Technical
 
 **Q: Why not use a cheaper AI model?**
-A: Speed matters. Cerebras is fast enough for real-time intervention. Cheaper models are too slow.
+A: Speed matters. Gemini 3 Flash is fast enough for real-time intervention. Cheaper models are too slow or less capable.
 
 **Q: Why not use a local model?**
 A: Browser extensions can't run large models locally. Cloud inference is necessary.
 
 **Q: How do you handle rate limits?**
-A: Load balancing across multiple API keys + exponential backoff + caching.
+A: Graceful fallback responses + caching recent analyses.
 
-**Q: What if Cerebras goes down?**
+**Q: What if Gemini goes down?**
 A: Fallback responses ensure the extension still works (with reduced functionality).
 
 ### Privacy
