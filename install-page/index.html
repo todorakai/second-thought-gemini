@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>💭 Second Thought - Impulse Purchase Interceptor</title>
+    <meta name="description" content="Build wealth by thinking twice before you buy. AI-powered browser extension that helps you make better financial decisions.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        header { text-align: center; padding: 3rem 0; color: white; }
+        h1 { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 700; }
+        .tagline { font-size: 1.5rem; opacity: 0.95; margin-bottom: 2rem; }
+        .hero { background: white; border-radius: 20px; padding: 3rem; margin: 2rem 0; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .stat-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 15px; text-align: center; }
+        .stat-number { font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .stat-label { font-size: 1.1rem; opacity: 0.9; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0; }
+        .feature { background: #f7fafc; padding: 2rem; border-radius: 15px; border-left: 4px solid #667eea; }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .feature h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #2d3748; }
+        .feature p { color: #4a5568; line-height: 1.8; }
+        .cta-section { text-align: center; padding: 3rem; background: white; border-radius: 20px; margin: 2rem 0; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+        .btn { padding: 1rem 2.5rem; font-size: 1.1rem; border: none; border-radius: 50px; cursor: pointer; text-decoration: none; display: inline-block; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .btn-secondary { background: white; color: #667eea; border: 2px solid #667eea; }
+        .tech-stack { background: #2d3748; color: white; padding: 3rem; border-radius: 20px; margin: 2rem 0; }
+        .tech-stack h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .tech-item { background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; text-align: center; }
+        .tech-item strong { display: block; margin-bottom: 0.5rem; color: #667eea; font-size: 1.1rem; }
+        footer { text-align: center; padding: 2rem; color: white; opacity: 0.9; }
+        footer a { color: white; text-decoration: none; border-bottom: 1px solid white; }
+        footer a:hover { opacity: 0.8; }
+        .hackathon-badge { background: #ffd700; color: #1a202c; padding: 0.5rem 1.5rem; border-radius: 50px; display: inline-block; margin: 1rem 0; font-weight: 600; }
+        pre { background: #2d3748; color: #fff; padding: 1rem; border-radius: 10px; overflow-x: auto; font-size: 0.95rem; }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .tagline { font-size: 1.2rem; }
+            .hero { padding: 2rem; }
+            .stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💭 Second Thought</h1>
+            <p class="tagline">Build wealth by thinking twice before you buy</p>
+            <div class="hackathon-badge">🏆 Built for Google DeepMind Gemini 3 Hackathon</div>
+        </header>
+
+        <div class="hero">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #2d3748;">The Problem</h2>
+            <p style="font-size: 1.2rem; color: #4a5568; margin-bottom: 0.5rem;">
+                Americans spend <strong>about $5,400 per year</strong> on impulse purchases, according to national consumer surveys. E-commerce platforms use sophisticated psychological tactics—fake urgency, manipulative discounts, and frictionless checkout—to exploit our cognitive biases.
+            </p>
+            <p style="font-size: 0.9rem; color: #718096; margin-top: 0.5rem;">
+                Source: Slickdeals / OnePoll consumer survey (reported by CNBC).
+            </p>
+
+            <h2 style="font-size: 2rem; margin-top: 1.5rem; margin-bottom: 1rem; color: #2d3748;">Our Solution</h2>
+            <p style="font-size: 1.2rem; color: #4a5568;">
+                Second Thought is an AI-powered browser extension that intervenes at the moment of highest risk: the checkout button. Using <strong>Google Gemini 3</strong>, it analyzes purchases in real-time, calculates opportunity costs, detects predatory pricing, and enforces 24-hour cool-down periods.
+            </p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">$5,400</div>
+                <div class="stat-label">Average impulse spending per year (U.S.)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$22K</div>
+                <div class="stat-label">Saved in 20 years (10% reduction, 7% growth)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">≈400ms</div>
+                <div class="stat-label">AI analysis time (Gemini 3, typical benchmark)</div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <h3>AI-Powered Analysis</h3>
+                <p>Google Gemini 3 analyzes purchase necessity based on your financial goals, providing personalized, empathetic guidance in near real-time.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📈</div>
+                <h3>Opportunity Cost Calculator</h3>
+                <p>See what your money could become if invested. That $300 smartwatch? It's $1,161 in 20 years at 7% growth.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚠️</div>
+                <h3>Predatory Pricing Detection</h3>
+                <p>Exposes fake discounts, urgency manipulation, and psychological tricks retailers use to pressure you into buying.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⏰</div>
+                <h3>24-Hour Cool-Down</h3>
+                <p>Enforces a waiting period for non-essential purchases. Behavioral research suggests cooling-off delays (e.g., 24–48 hours) reduce impulsive buys by giving time for reflection.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <h3>Personalized Insights</h3>
+                <p>Tailored to your financial goals—saving for a house, paying off debt, or building an emergency fund.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>Full Observability</h3>
+                <p>Integrated with Opik for comprehensive tracing, LLM-as-judge evaluations, and quality monitoring.</p>
+            </div>
+        </div>
+
+        <div class="hero" id="installation">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #2d3748; text-align: center;">📦 Installation Guide</h2>
+            
+            <div style="background: #f7fafc; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #2d3748;">Step 1: Download the Extension</h3>
+                <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 1rem;">
+                    Clone or download the repository from GitHub:
+                </p>
+                <pre>git clone https://github.com/todorakai/second-thought-gemini
+cd second-thought-gemini</pre>
+                <p style="font-size: 1rem; color: #4a5568; margin-top: 1rem;">
+                    Or <a href="https://github.com/todorakai/second-thought-gemini/archive/refs/heads/main.zip" style="color: #667eea; font-weight: 600;">download as ZIP</a> and extract it.
+                </p>
+            </div>
+
+            <div style="background: #f7fafc; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #2d3748;">Step 2: Open Chrome Extensions</h3>
+                <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 1rem;">
+                    In Google Chrome, navigate to:
+                </p>
+                <pre>chrome://extensions/</pre>
+                <p style="font-size: 1rem; color: #4a5568; margin-top: 1rem;">
+                    Or click the three dots menu → <strong>Extensions</strong> → <strong>Manage Extensions</strong>
+                </p>
+            </div>
+
+            <div style="background: #f7fafc; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #2d3748;">Step 3: Enable Developer Mode</h3>
+                <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 1rem;">
+                    Toggle the <strong>"Developer mode"</strong> switch in the top right corner.
+                </p>
+                <img src="https://developer.chrome.com/static/docs/extensions/get-started/tutorial/hello-world/image/extensions-page-e0d64d89a6acf_1920.png" alt="Developer Mode" style="max-width: 100%; border-radius: 10px; margin-top: 1rem; border: 2px solid #e2e8f0;">
+            </div>
+
+            <div style="background: #f7fafc; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #2d3748;">Step 4: Load the Extension</h3>
+                <ol style="font-size: 1.1rem; color: #4a5568; line-height: 2; padding-left: 2rem;">
+                    <li>Click the <strong>"Load unpacked"</strong> button</li>
+                    <li>Navigate to the downloaded folder</li>
+                    <li>Select the <strong>"extension"</strong> folder inside the project</li>
+                    <li>Click <strong>"Select Folder"</strong></li>
+                </ol>
+                <p style="font-size: 1rem; color: #4a5568; margin-top: 1rem; background: #fff3cd; padding: 1rem; border-radius: 8px; border-left: 4px solid #ffc107;">
+                    ⚠️ <strong>Important:</strong> Make sure to select the <code style="background: #2d3748; color: #fff; padding: 0.2rem 0.5rem; border-radius: 4px;">extension</code> folder, not the root project folder!
+                </p>
+            </div>
+
+            <div style="background: #f7fafc; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #2d3748;">Step 5: Verify Installation</h3>
+                <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 1rem;">
+                    You should see the Second Thought extension card appear with:
+                </p>
+                <ul style="font-size: 1.1rem; color: #4a5568; line-height: 2; padding-left: 2rem;">
+                    <li>💭 Second Thought icon</li>
+                    <li>Version 1.0.0</li>
+                    <li>Status: Enabled</li>
+                </ul>
+                <p style="font-size: 1rem; color: #4a5568; margin-top: 1rem;">
+                    The extension icon should also appear in your Chrome toolbar (top right).
+                </p>
+            </div>
+
+            <div style="background: #d4edda; padding: 2rem; border-radius: 15px; border-left: 4px solid #28a745;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #155724;">✅ You're All Set!</h3>
+                <p style="font-size: 1.1rem; color: #155724; margin-bottom: 1rem;">
+                    Now visit any e-commerce site (Amazon, eBay, Walmart, etc.) and browse a product over $20. Second Thought will automatically intervene with AI-powered insights!
+                </p>
+                <p style="font-size: 1rem; color: #155724;">
+                    <strong>Try it now:</strong> Visit <a href="https://www.amazon.com" target="_blank" style="color: #155724; text-decoration: underline;">Amazon.com</a> and click on any product.
+                </p>
+            </div>
+        </div>
+
+        <div class="hero">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #2d3748; text-align: center;">🎯 Quick Test</h2>
+            <div style="background: #f7fafc; padding: 2rem; border-radius: 15px;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #2d3748;">Test the Extension:</h3>
+                <ol style="font-size: 1.1rem; color: #4a5568; line-height: 2; padding-left: 2rem;">
+                    <li>Visit <a href="https://www.amazon.com" target="_blank" style="color: #667eea; font-weight: 600;">Amazon.com</a></li>
+                    <li>Search for any product (e.g., "smartwatch", "headphones")</li>
+                    <li>Click on a product that costs more than $20</li>
+                    <li>Wait 2-3 seconds</li>
+                    <li>The Second Thought panel will slide in from the right! 🎉</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="hero">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #2d3748; text-align: center;">⚙️ Configuration (Optional)</h2>
+            <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 1.5rem; text-align: center;">
+                Click the Second Thought icon in your toolbar to customize settings:
+            </p>
+            <div class="features" style="margin-top: 2rem;">
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <h3>Spending Threshold</h3>
+                    <p>Set the minimum price for intervention (default: $20)</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Financial Goals</h3>
+                    <p>Add your goals: "Save for house", "Pay off debt", etc.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Monthly Budget</h3>
+                    <p>Set your budget for personalized insights</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #2d3748; text-align: center;">❓ Troubleshooting</h2>
+            
+            <div style="background: #f7fafc; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #2d3748;">Extension doesn't appear?</h3>
+                <ul style="font-size: 1rem; color: #4a5568; line-height: 1.8; padding-left: 2rem;">
+                    <li>Make sure the product costs more than $20</li>
+                    <li>Reload the extension in <code>chrome://extensions/</code></li>
+                    <li>Refresh the product page</li>
+                    <li>Check browser console (F12) for errors</li>
+                </ul>
+            </div>
+
+            <div style="background: #f7fafc; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #2d3748;">Extension not loading?</h3>
+                <ul style="font-size: 1rem; color: #4a5568; line-height: 1.8; padding-left: 2rem;">
+                    <li>Verify you selected the <code>extension</code> folder, not the root folder</li>
+                    <li>Make sure Developer mode is enabled</li>
+                    <li>Try removing and re-adding the extension</li>
+                </ul>
+            </div>
+
+            <div style="background: #f7fafc; padding: 1.5rem; border-radius: 10px;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #2d3748;">Need more help?</h3>
+                <p style="font-size: 1rem; color: #4a5568; line-height: 1.8;">
+                    Check the <a href="https://github.com/todorakai/second-thought-gemini#readme" target="_blank" style="color: #667eea; font-weight: 600;">full documentation on GitHub</a> or open an issue.
+                </p>
+            </div>
+        </div>
+
+        <div class="tech-stack">
+            <h2>🛠️ Tech Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>AI</strong>
+                    Google Gemini 3 (gemini-3-flash-preview)
+                </div>
+                <div class="tech-item">
+                    <strong>Frontend</strong>
+                    Chrome Extension (Manifest V3)
+                </div>
+                <div class="tech-item">
+                    <strong>Backend</strong>
+                    Next.js 16 + TypeScript
+                </div>
+                <div class="tech-item">
+                    <strong>Database</strong>
+                    Supabase (PostgreSQL)
+                </div>
+                <div class="tech-item">
+                    <strong>Observability</strong>
+                    Opik (Tracing & Evaluation)
+                </div>
+                <div class="tech-item">
+                    <strong>Testing</strong>
+                    Vitest + fast-check (85 tests)
+                </div>
+            </div>
+        </div>
+
+        <div class="hero">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #2d3748;">How It Works</h2>
+            <ol style="font-size: 1.1rem; color: #4a5568; line-height: 2; padding-left: 2rem;">
+                <li><strong>Detect</strong> - Extension identifies product pages on major e-commerce sites</li>
+                <li><strong>Extract</strong> - Captures product details, price, and urgency indicators</li>
+                <li><strong>Analyze</strong> - Gemini 3 evaluates necessity vs. impulse in &lt;500ms (typical benchmark)</li>
+                <li><strong>Calculate</strong> - Shows opportunity cost (5, 10, 20-year projections)</li>
+                <li><strong>Warn</strong> - Detects predatory pricing tactics and manipulation</li>
+                <li><strong>Intervene</strong> - Displays intervention panel with personalized guidance</li>
+                <li><strong>Protect</strong> - Enforces 24-hour cool-down for non-essential purchases</li>
+            </ol>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Gemini 3 Integration</h2>
+            <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 1rem;">
+                Second Thought leverages <strong>Gemini 3's enhanced reasoning capabilities</strong> to understand nuanced financial contexts, detect subtle manipulation tactics, and generate empathetic, personalized guidance.
+            </p>
+            <p style="font-size: 1.1rem; color: #4a5568;">
+                The model's low-latency benchmarks make near real-time intervention possible without disrupting the shopping experience. Gemini 3 is central to every feature—from analyzing purchase necessity to generating supportive messages that users actually listen to.
+            </p>
+        </div>
+
+        <footer>
+            <p><strong>Second Thought</strong> - Think twice, build wealth. 💭💰</p>
+            <p style="margin-top: 1rem;">
+                <a href="https://github.com/todorakai/second-thought-gemini" target="_blank">GitHub</a> • 
+                <a href="https://second-thought-gemini-server.netlify.app" target="_blank">API</a> • 
+                Built for Google DeepMind Gemini 3 Global Hackathon
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                MIT License • 2026
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.85);">
+                Sources: Slickdeals / OnePoll (reported by CNBC) — used for the $5,400 baseline.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

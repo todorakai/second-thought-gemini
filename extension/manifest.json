@@ -18,7 +18,7 @@
         "https://*.etsy.com/*",
         "https://*.shopify.com/*",
         "https://*/*",
-        "https://second-thought-azure.vercel.app/*"
+        "https://second-thought-gemini-server.netlify.app/*"
     ],
     "action": {
         "default_popup": "popup.html",
